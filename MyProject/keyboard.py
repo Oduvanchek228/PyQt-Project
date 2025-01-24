@@ -124,6 +124,7 @@ class Keyboard(QWidget):
 
         self.setWindowTitle('Синтезатор MIDI')
         self.setFixedSize(1044, 300)
+        self.setStyleSheet('QWidget { background-color: gray }')
         self.notes = [name for name in keymap.keys()]
         self.standard_notes = [note for note in keymap.values()]
         self.effect1_notes = [mixer.Sound('effect_1/c3_1.wav'), mixer.Sound('effect_1/d3_1.wav'),
@@ -193,16 +194,25 @@ class Keyboard(QWidget):
 
         self.record_btn = QPushButton(self)
         self.record_btn.setText('▶️')
-        self.record_btn.move(965, 50)
+        self.record_btn.setStyleSheet('QWidget { background-color: red }')
+        self.record_btn.move(580, 50)
         self.record_btn.clicked.connect(self.record)
 
         self.effect1_btn = QPushButton(self)
         self.effect1_btn.setText('Эффект №1')
+        self.effect1_btn.move(380, 50)
+        self.effect1_btn.setStyleSheet('QWidget { background-color: white }')
         self.effect1_btn.clicked.connect(self.effect_1)
+
+        self.effect2_btn = QPushButton(self)
+        self.effect2_btn.setText('Эффект №2')
+        self.effect2_btn.setStyleSheet('QWidget { background-color: white }')
+        self.effect2_btn.move(480, 50)
 
         self.back_btn = QPushButton(self)
         self.back_btn.setText('Без эффектов')
-        self.back_btn.move(0, 50)
+        self.back_btn.setStyleSheet('QWidget { background-color: white }')
+        self.back_btn.move(280, 50)
         self.back_btn.clicked.connect(self.back)
 
     def play(self):
