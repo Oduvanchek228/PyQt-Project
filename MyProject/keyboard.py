@@ -157,6 +157,37 @@ class Keyboard(QWidget):
                               mixer.Sound('effect_1/F#6_1.wav'), mixer.Sound('effect_1/G#6_1.wav'),
                               mixer.Sound('effect_1/A#6_1.wav'), mixer.Sound('effect_1/C7_1.wav')]
 
+        self.effect2_notes = [mixer.Sound('effect_2/C3_2.wav'), mixer.Sound('effect_2/D3_2.wav'),
+                              mixer.Sound('effect_2/E3_2.wav'), mixer.Sound('effect_2/F3_2.wav'),
+                              mixer.Sound('effect_2/G3_2.wav'),
+                              mixer.Sound('effect_2/A3_2.wav'), mixer.Sound('effect_2/B3_2.wav'),
+                              mixer.Sound('effect_2/C#3_2.wav'), mixer.Sound('effect_2/D#3_2.wav'),
+                              mixer.Sound('effect_2/F#3_2.wav'),
+                              mixer.Sound('effect_2/G#3_2.wav'), mixer.Sound('effect_2/A#3_2.wav'),
+                              mixer.Sound('effect_2/C4_2.wav'), mixer.Sound('effect_2/D4_2.wav'),
+                              mixer.Sound('effect_2/E4_2.wav'),
+                              mixer.Sound('effect_2/F4_2.wav'), mixer.Sound('effect_2/G4_2.wav'),
+                              mixer.Sound('effect_2/A4_2.wav'), mixer.Sound('effect_2/B4_2.wav'),
+                              mixer.Sound('effect_2/C#4_2.wav'),
+                              mixer.Sound('effect_2/D#4_2.wav'),
+                              mixer.Sound('effect_2/F#4_2.wav'), mixer.Sound('effect_2/G#4_2.wav'),
+                              mixer.Sound('effect_2/A#4_2.wav'), mixer.Sound('effect_2/C5_2.wav'),
+                              mixer.Sound('effect_2/D5_2.wav'),
+                              mixer.Sound('effect_2/E5_2.wav'), mixer.Sound('effect_2/F5_2.wav'),
+                              mixer.Sound('effect_2/G5_2.wav'), mixer.Sound('effect_2/A5_2.wav'),
+                              mixer.Sound('effect_2/B5_2.wav'),
+                              mixer.Sound('effect_2/C#5_2.wav'), mixer.Sound('effect_2/D#5_2.wav'),
+                              mixer.Sound('effect_2/F#5_2.wav'), mixer.Sound('effect_2/G#5_2.wav'),
+                              mixer.Sound('effect_2/A#5_2.wav'),
+                              mixer.Sound('effect_2/C6_2.wav'), mixer.Sound('effect_2/D6_2.wav'),
+                              mixer.Sound('effect_2/E6_2.wav'), mixer.Sound('effect_2/F6_2.wav'),
+                              mixer.Sound('effect_2/G6_2.wav'),
+                              mixer.Sound('effect_2/A6_2.wav'), mixer.Sound('effect_2/B6_2.wav'),
+                              mixer.Sound('effect_2/C#6_2.wav'), mixer.Sound('effect_2/D#6_2.wav'),
+                              mixer.Sound('effect_2/F#6_2.wav'),
+                              mixer.Sound('effect_2/G#6_2.wav'), mixer.Sound('effect_2/A#6_2.wav'),
+                              mixer.Sound('effect_2/C7_2.wav')]
+
         for n, note in enumerate(notes_names):
             button = QPushButton(self)
             button.setFixedSize(36, 210)
@@ -208,6 +239,7 @@ class Keyboard(QWidget):
         self.effect2_btn.setText('Эффект №2')
         self.effect2_btn.setStyleSheet('QWidget { background-color: white }')
         self.effect2_btn.move(480, 50)
+        self.effect2_btn.clicked.connect(self.effect_2)
 
         self.back_btn = QPushButton(self)
         self.back_btn.setText('Без эффектов')
@@ -225,6 +257,10 @@ class Keyboard(QWidget):
 
     def effect_1(self):
         for n, note in enumerate(self.effect1_notes):
+            keymap[self.notes[n]] = note
+
+    def effect_2(self):
+        for n, note in enumerate(self.effect2_notes):
             keymap[self.notes[n]] = note
 
     def record(self):
